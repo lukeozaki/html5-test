@@ -56,6 +56,15 @@
 <body>
   <h1>Page Not Found</h1>
   <p>Sorry, but the page you were trying to view does not exist.</p>
+  <script>
+    // Track 404 page view
+    if (typeof pendo !== "undefined" && pendo.track) {
+      pendo.track("404 Page Viewed", {
+        requested_url: window.location.href,
+        referrer: document.referrer || "direct"
+      });
+    }
+  </script>
 </body>
 
 </html>
